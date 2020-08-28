@@ -52,7 +52,7 @@
 | postal_code   | string | null: false                  |
 | city          | string | null: false                  |
 | address_line  | string | null: false                  |
-| address_build | string | null: false                  |
+| address_build | string |       false                  |
 | phone number  | string | null: false                  | 
 
 ### Association
