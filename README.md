@@ -18,9 +18,9 @@
 ## itemsテーブル
 | Column        | Type   | Options                      |
 |---------------|--------|------------------------------|
-|   name        | string | null: false                  |
-| users_id      | integer| null: false foreign_key: true|
-| price         | string | null: false                  |
+|   name        |string | null: false                  |
+| user_id       |integer| null: false foreign_key: true|
+| price         |string | null: false                  |
 | category      |integer | null: false                  |
 | condition     |integer | null: false                  |
 | origin        |integer | null: false                  |
@@ -36,8 +36,8 @@
 ## buyersテーブル
 | Column   | Type   | Options                      |
 |----------|--------|------------------------------|
-| users_id | integer| null: false foreign_key: true|
-| items_id | integer| null: false foreign_key: true|
+| user_id  | integer | null: false foreign_key: true|
+| item_id  | integer | null: false foreign_key: true|
 
 ### Association
 - belongs_to :user
