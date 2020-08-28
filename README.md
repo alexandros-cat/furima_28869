@@ -16,15 +16,16 @@
 - has_many  :buyers
 
 ## itemsテーブル
-| Column      | Type   | Options                      |
-|-------------|--------|------------------------------|
-|   name      | string | null: false                  |
-| users_id    | integer| null: false foreign_key: true|
-| price       | string | null: false                  |
-| category    |integer | null: false                  |
-| condition   |integer | null: false                  |
-| origin      |integer | null: false                  |
-|delivery_days|integer | null: false                  |
+| Column        | Type   | Options                      |
+|---------------|--------|------------------------------|
+|   name        | string | null: false                  |
+| users_id      | integer| null: false foreign_key: true|
+| price         | string | null: false                  |
+| category      |integer | null: false                  |
+| condition     |integer | null: false                  |
+| origin        |integer | null: false                  |
+|delivery_days  |integer | null: false                  |
+|shipping_charge|integer | null: false                  |
 
 
 
@@ -51,6 +52,7 @@
 | postal_code   | string | null: false                  |
 | city          | string | null: false                  |
 | address_line  | string | null: false                  |
+| address_build | string | null: false                  |
 | phone number  | string | null: false                  | 
 
 ### Association
