@@ -12,23 +12,20 @@
 | birthday        | date  | null: false |
 
 ### Association
-- has_many   :items
-- belongs to :buyer
+- has_many  :items
+- has_many  :buyers
 
 ## itemsテーブル
 | Column      | Type   | Options                      |
 |-------------|--------|------------------------------|
-|product_name | string | null: false                  |
+|   name      | string | null: false                  |
 | users_id    | integer| null: false foreign_key: true|
-| category    | string | null: false                  |
-| condition   | string | null: false                  |
 | price       | string | null: false                  |
-| origin      | string | null: false                  |
-|Delivery days| date   | null: false                  |
+
 
 ### Association
 - belongs_to :user
-- belong_to :buyer 
+- belongs_to :buyer 
 
 ## buyersテーブル
 | Column   | Type   | Options                      |
