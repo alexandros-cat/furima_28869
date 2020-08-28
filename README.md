@@ -21,6 +21,11 @@
 |   name      | string | null: false                  |
 | users_id    | integer| null: false foreign_key: true|
 | price       | string | null: false                  |
+| category    |integer | null: false                  |
+| condition   |integer | null: false                  |
+| origin      |integer | null: false                  |
+|Delivery days|integer | null: false                  |
+
 
 
 ### Association
@@ -36,7 +41,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :shipping_address
+- has_one :shipping_address
 
 ## shipping_addressテーブル
 | Column        | Type   | Options                      |
