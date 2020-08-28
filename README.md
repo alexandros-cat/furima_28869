@@ -24,13 +24,13 @@
 | category    |integer | null: false                  |
 | condition   |integer | null: false                  |
 | origin      |integer | null: false                  |
-|Delivery days|integer | null: false                  |
+|delivery_days|integer | null: false                  |
 
 
 
 ### Association
 - belongs_to :user
-- belongs_to :buyer 
+- has_one :buyer 
 
 ## buyersテーブル
 | Column   | Type   | Options                      |
@@ -47,12 +47,11 @@
 | Column        | Type   | Options                      |
 |---------------|--------| -----------------------------|
 | buyer_id      | integer| null: false foreign_key: true|
-| name          | string | null: false                  |
-| state         | ENUM   | null: false                  |
-| Postal code   | string | null: false                  |
-| City          | string | null: false                  |
-| Address Line  | string | null: false                  |
-| Phone number  | string | null: false                  | 
+| state         | integer| null: false                  |
+| postal_code   | string | null: false                  |
+| city          | string | null: false                  |
+| address_line  | string | null: false                  |
+| phone number  | string | null: false                  | 
 
 ### Association
 - belongs_to :buyer
