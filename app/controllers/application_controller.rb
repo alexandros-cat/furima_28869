@@ -5,7 +5,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, 
                  if: :devise_controller?
   protected                
+
+  protect_from_forgery with: :exception
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+
   private
+  
+  def rescue404(e)
+   @exception = e
+   render template: 'error/not_found', status: 404
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
@@ -17,6 +26,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
- 
 end
