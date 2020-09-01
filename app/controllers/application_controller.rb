@@ -7,17 +7,36 @@ class ApplicationController < ActionController::Base
   protected                
 
   protect_from_forgery with: :exception
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue404
 
+  def edit
+    
+  end
+    
+  def update
+    if current_user.update(user_params)
+            redirect_to root_path
+    else
+            render :edit
+    end
+  end
+    
+  # def new
+  #   @user = User.new
+  # end  
+    
+  # def create
+  #   @user = User.new(user_params)
+  # end
   private
   
-  def rescue404(e)
-   @exception = e
-   render template: 'error/not_found', status: 404
-  end
+  # def rescue404(e)
+  #  @exception = e
+  #  render template: 'error/not_found', status: 404
+  # end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :first_name, :family_name_kana, :first_name_kana, :nickname,  :encrypted_password, :birthday])
   end
 
   def basic_auth
