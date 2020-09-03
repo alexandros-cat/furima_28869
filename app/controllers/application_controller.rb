@@ -20,21 +20,9 @@ class ApplicationController < ActionController::Base
             render :edit
     end
   end
-    
-  # def new
-  #   @user = User.new
-  # end  
-    
-  # def create
-  #   @user = User.new(user_params)
-  # end
+      
   private
   
-  # def rescue404(e)
-  #  @exception = e
-  #  render template: 'error/not_found', status: 404
-  # end
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :first_name, :family_name_kana, :first_name_kana, :nickname,  :encrypted_password, :birthday])
   end
