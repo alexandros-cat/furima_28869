@@ -51,12 +51,12 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:condition_id,  Condition.all, :id, :name,  {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -72,17 +72,17 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%= f.collection_select(:shipping_charge_id,  ShippingCharge.all, :id, :name,  {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <%= f.collection_select(:origin_id,  Origin.all,:id, :name,  {}, {class:"select-box", id:"item-prefecture"}) %>
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:delivery_days_id, DeliveryDay.all, :id, :name,  {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
