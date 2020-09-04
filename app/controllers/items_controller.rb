@@ -12,20 +12,7 @@ class ItemsController < ApplicationController
   def create
    @items = Item.new(items_params)
   end  
-
-  def price
-    item = Item.find(params[:id])
-    if item.price 
-      item.update(price: false)
-    else
-      item.update(price: true)
-    end
-    item = Item.find(params[:id])
-    render json: { item: item }
-  end
-
-  end  
-
+  
   def authenticate_user!
     unless user_signed_in?
       redirect_to action: :index
