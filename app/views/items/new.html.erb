@@ -6,8 +6,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model:@item,url: items_path, local: true do |f| %>
-
+    <%= form_with(model:@item,url: items_path, local: true )do |f| %>
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
@@ -32,7 +31,7 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :item_text, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明
@@ -140,7 +139,7 @@
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
-      <%=link_to 'もどる','new/item', class:"back-btn" %>
+      <%=link_to 'もどる',root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
