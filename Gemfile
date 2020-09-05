@@ -64,4 +64,6 @@ gem 'active_hash'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 

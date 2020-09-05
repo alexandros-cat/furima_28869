@@ -6,12 +6,13 @@ class ItemsController < ApplicationController
   end    
 
   def new
-   @items = Item.all
+   @item = Item.new
   end  
   
   def create
-   @items = Item.new(items_params)
+    Item.create(item_params)
   end  
+
   
   def authenticate_user!
     unless user_signed_in?
@@ -20,9 +21,9 @@ class ItemsController < ApplicationController
   end
   
   private
-  def items_params
-    params.require(:item).permit(:name, :price, :category, 
-                                 :condition,:origin, 
-                                 :delivery_days, :shipping_charge)
+  def item_params
+    params.require(:item).permit(:name, :price, :category_id, 
+                                 :condition_id, :origin_id, 
+                                 :delivery_days_id, :shipping_charge_id, :image, :item_text).merge(user_id: current_user.id)
   end  
 end
