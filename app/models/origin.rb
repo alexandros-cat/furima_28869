@@ -5,7 +5,7 @@ class Origin < ActiveHash::Base
     {id: 5, name: '宮城県'}, {id: 6, name: '秋田県'}, {id: 7, name: '山形県'},
     {id: 8, name: '福島県'}, {id: 9, name: '茨城県'}, {id: 10, name: '栃木県'},
     {id: 11, name: '群馬県'}, {id: 12, name: '埼玉県'}, {id: 13, name: '千葉県'},
-    {id: 14, name: '東京都'}, {id: 15, name: '神奈川県'},{id: 16, name: '新潟県'},
+    {id: 14, name: '東京都'}, {id: 15, name: '神奈川県'}, {id: 16, name: '新潟県'},
     {id: 17, name: '富山県'}, {id: 18, name: '石川県'}, {id: 19, name: '福井県'},
     {id: 20, name: '山梨県'}, {id: 21, name: '長野県'}, {id: 22, name: '岐阜県'},
     {id: 23, name: '静岡県'}, {id: 24, name: '愛知県'}, {id: 25, name: '三重県'},
@@ -17,5 +17,5 @@ class Origin < ActiveHash::Base
     {id: 41, name: '福岡県'}, {id: 42, name: '佐賀県'}, {id: 43, name: '長崎県'},
     {id: 44, name: '熊本県'}, {id: 45, name: '大分県'}, {id: 46, name: '宮崎県'},
     {id: 47, name: '鹿児島県'}, {id: 48, name: '沖縄県'}
-]
+  ]
 end

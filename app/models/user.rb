@@ -11,14 +11,13 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true
   validates :birthday, presence: true
 
-  
   with_options format: {with: /\A[ぁ-んァ-ヶ一-龥]+\z/} do
-   validates :family_name
-   validates :first_name
+    validates :family_name
+    validates :first_name
   end
 
   with_options format: {with: /\A[ァ-ヶー－]+\z/} do
-   validates :family_name_kana 
-   validates :first_name_kana  
+    validates :family_name_kana
+    validates :first_name_kana
   end
 end
