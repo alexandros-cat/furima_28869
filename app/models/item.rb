@@ -10,26 +10,30 @@ class Item < ApplicationRecord
   has_one :buyer
 
   # 空の投稿を保存できないようにする
-
-  validates :name, presence: true
-  validates :item_text, presence: true
-  validates :category_id, presence: true
-  validates :condition_id, presence: true
-  validates :origin_id, presence: true
-  validates :delivery_days_id, presence: true
-  validates :shipping_charge_id, presence: true
-  validates :price, presence: true
+  with_options presence: true do
+  validates :name
+  validates :item_text
+  validates :category_id
+  validates :condition_id
+  validates :origin_id
+  validates :delivery_days_id
+  validates :shipping_charge_id
+  validates :price
+  validates :user_id
+  end
   validates :price, numericality: { greater_than_or_equal_to: 300,
                                     less_than_or_equal_to: 9_999_999 }
   validates_format_of :price, with: /\A[0-9]+\z/
 
   # ジャンルの選択が「--」の時は保存できないようにする
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :origin_id, numericality: { other_than: 1 }
-  validates :delivery_days_id, numericality: { other_than: 1 }
-  validates :shipping_charge_id, numericality: { other_than: 1 }
-  validates :user_id, presence: true
+  with_options numericality: { other_than: 1 } do
+  validates :category_id
+  validates :condition_id
+  validates :origin_id
+  validates :delivery_days_id
+  validates :shipping_charge_id
+  end
+
 end
 
 # エラーハンドリングができていること

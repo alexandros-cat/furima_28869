@@ -5,7 +5,7 @@ RSpec.describe Item, type: :model do
     before do
       @item = FactoryBot.build(:item)
       @item.image = fixture_file_upload('public/images/Railsの処理の流れ_0409.png')
-    end
+   end
 
     context 'itemが保存できない場合' do
       it 'nameがない場合は登録できないこと' do
@@ -69,29 +69,45 @@ RSpec.describe Item, type: :model do
       it 'category_idの選択が「---」の時は登録できないこと' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be select")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it 'condition_idの選択が「---」の時は登録できないこと' do
-        @item.category_id = 1
+        @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be select")
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
       it 'origin_id の選択が「---」の時は登録できないこと' do
         @item.origin_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Origin must be select")
+        expect(@item.errors.full_messages).to include("Origin must be other than 1")
       end
+
       it 'delivery_days_idの選択が「---」の時は登録できないこと' do
         @item.delivery_days_id  = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery days must be select")
+        expect(@item.errors.full_messages).to include("Delivery days must be other than 1")
       end
       it 'shipping_charge_idの選択が「---」の時は登録できないこと' do
         @item.shipping_charge_id  = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge must be select")
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
-    end
-  end
-end
+      it'priceが299以下の場合は登録できない'do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+      it'priceが10000000以上の場合は登録できない'do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
+      it'price半角数字以外だと登録できないこと'do
+       @item.price = '２０００'
+       @item.valid?
+       expect(@item.errors.full_messages).to include("Price is not a number")
+      end  
 
+    end  
+ end  
+end
