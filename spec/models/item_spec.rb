@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'shipping_charge_id がない場合は登録できないこと' do
-        @item.shipping_charge_id = ''
+        @item.shipping_charge_id =''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
       end
@@ -66,6 +66,32 @@ RSpec.describe Item, type: :model do
         @item = FactoryBot.build(:item)
         expect(@item).to be_valid
       end
+      it 'category_idの選択が「---」の時は登録できないこと' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be select")
+      end
+      it 'condition_idの選択が「---」の時は登録できないこと' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be select")
+      end
+      it 'origin_id の選択が「---」の時は登録できないこと' do
+        @item.origin_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Origin must be select")
+      end
+      it 'delivery_days_idの選択が「---」の時は登録できないこと' do
+        @item.delivery_days_id  = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery days must be select")
+      end
+      it 'shipping_charge_idの選択が「---」の時は登録できないこと' do
+        @item.shipping_charge_id  = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge must be select")
+      end
     end
   end
 end
+
