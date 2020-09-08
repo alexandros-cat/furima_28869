@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  
 
   def index
     @items = Item.all
@@ -16,6 +17,11 @@ class ItemsController < ApplicationController
     else
       render 'new'
     end  
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  
   end
 
   def authenticate_user!
