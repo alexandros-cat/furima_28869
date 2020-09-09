@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   
   end
 
-  def authenticate_user!
-    redirect_to action: :index unless user_signed_in?
-  end
+  
 
   private
 
