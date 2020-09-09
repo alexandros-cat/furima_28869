@@ -29,8 +29,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    tweet.updte(tweeet_params)
+    item = Item.find(params[:id])
+    item.update(item_params)
   end  
 
   
