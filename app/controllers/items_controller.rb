@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :update]
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -18,9 +19,12 @@ class ItemsController < ApplicationController
     end  
   end
 
-  def authenticate_user!
-    redirect_to action: :index unless user_signed_in?
+  def show
+    @item = Item.find(params[:id])
+  
   end
+
+  
 
   private
 
