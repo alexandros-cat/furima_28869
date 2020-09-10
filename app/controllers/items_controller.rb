@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_item, only: [:edit, :update, :show]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
     @items = Item.all
@@ -14,23 +14,31 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-    redirect_to root_path
+       redirect_to root_path
     else
-      render 'new'
+       render 'new'
     end  
   end
 
 
 
   def update
-    if@item.update(item_params)
-      redirect_to item_path
+    if @item.update(item_params)
+       redirect_to item_path
     else
        render 'edit'
     end 
   end  
 
-  
+  def destroy
+    if @item.destroy
+       redirect_to root_path
+    else
+       render 'edit'
+    end
+  end  
+
+
 
   private
 
