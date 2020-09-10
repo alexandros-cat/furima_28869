@@ -11,15 +11,15 @@ class Item < ApplicationRecord
 
   # 空の投稿を保存できないようにする
   with_options presence: true do
-  validates :name
-  validates :item_text
-  validates :category_id
-  validates :condition_id
-  validates :origin_id
-  validates :delivery_days_id
-  validates :shipping_charge_id
-  validates :price
-  validates :user_id
+    validates :name
+    validates :item_text
+    validates :category_id
+    validates :condition_id
+    validates :origin_id
+    validates :delivery_days_id
+    validates :shipping_charge_id
+    validates :price
+    validates :user_id
   end
   validates :price, numericality: { greater_than_or_equal_to: 300,
                                     less_than_or_equal_to: 9_999_999 }
