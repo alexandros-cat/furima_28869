@@ -1,6 +1,7 @@
 class Shippingaddress < ApplicationRecord
-  belongs_to :buyer  # buyerテーブルとのアソシエーション
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :origin
+  belongs_to :buyer  # buyerテーブルとのアソシエーション
   with_options presence: true do
     validates :buyer_id 
     validates :origin_id 
@@ -9,7 +10,7 @@ class Shippingaddress < ApplicationRecord
     validates :address_line
     validates :address_build
     validates :phone_number
-   
-    validates :postal_code, ^\d{3}-\d{4}$  
-    validates :phone_number, ^0\d{9,10}$
+  end  
+    validates :postal_code, format:{ with: /\A\d{3}[-]\d{4}\z/ } 
+    validates :phone_number, format:{ with: /\A\d{11}\z/} 
 end
