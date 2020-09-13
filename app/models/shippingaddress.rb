@@ -3,16 +3,4 @@ class Shippingaddress < ApplicationRecord
   belongs_to_active_hash :origin
   belongs_to :buyer  # buyerテーブルとのアソシエーション
   attr_accessor :token
-  with_options presence: true do
-    validates :buyer_id 
-    validates :origin_id 
-    validates :postal_code
-    validates :city 
-    validates :address_line
-    validates :address_build
-    validates :phone_number
-    validates :token, presence: true
-  end  
-    validates :postal_code, format:{ with: /\A\d{3}[-]\d{4}\z/ } 
-    validates :phone_number, format:{ with: /\A\d{11}\z/} 
 end
