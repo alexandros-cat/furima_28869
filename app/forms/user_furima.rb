@@ -1,7 +1,8 @@
 class UserFurima
 
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :buyer_id, :origin_id, :postal_code, :city, :address_line, :address_build, :phone_number
+  attr_accessor :item_id, :user_id, :buyer_id, :origin_id, :postal_code, 
+                :city, :address_line, :address_build, :phone_number
  
   with_options presence: true do
    validates :buyer_id 

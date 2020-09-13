@@ -2,17 +2,19 @@ class OrdersController < ApplicationController
   
   def index
     @item = Item.find(params[:item_id])
-    @shippingaddress = Shippingaddress.new
+    @user_furima = UserFurima.new
 
   end
   
-  
+  def new
+    @user_furima = UserFurima.new  
+  end
 
   def create
-     @shippingaddress = Shippingaddress.new(orders_params)
-   if@Shippingaddress.valid?
+     @user_furima = UserFurima.new(orders_params)
+   if @user_furima.valid?
      pay_item
-     @Shippingaddresses.save(orders_params)
+     @user_furima.save(orders_params)
      return redirect_to root_path
    else
      render 'index'
