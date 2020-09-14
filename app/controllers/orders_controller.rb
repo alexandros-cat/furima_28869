@@ -1,21 +1,14 @@
 class OrdersController < ApplicationController
+ 
+  before_action :set_item , only: [:index, :create]
   
-  def index
-    @item = Item.find(params[:item_id])
-    @user_furima = UserFurima.new
-
-  end
-  
-  def new
-    @user_furima = UserFurima.new  
-  end
-
   def create
-     @user_furima = UserFurima.new(orders_params)
-   if @user_furima.valid?
-     pay_item
-     @user_furima.save(orders_params)
-     return redirect_to root_path
+   
+    @shippingaddress = UserFurima.new(orders_params) 
+   if @shippingaddress.valid?
+      pay_item
+      @shippingaddress.save
+      redirect_to root_path
    else
      render 'index'
    end  
@@ -24,19 +17,22 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    params.require(:user_furima).
-    permit(:origin_id, :price,:postal_code, :city, :address_line,
-           :address_build,:phone_number, :token)
-           .merge(user_id: current_user.id, item_id: params[:item_id],
-            buyer_id: params[:buyer_id])  
+    params.
+    permit(:origin_id,:postal_code, :city, :address_line,:token,:item_id,
+           :address_build,:phone_number)
+           .merge(user_id: current_user.id)  
   end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
-      amount: order_params[:price],  # 商品の値段
-      card: order_params[:token],    # カードトークン
+      amount: @item.price,  # 商品の値段
+      card: orders_params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
+  end
+
+  def set_item                         
+    @item = Item.find(params[:item_id])
   end
  end
