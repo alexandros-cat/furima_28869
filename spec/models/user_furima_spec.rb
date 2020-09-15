@@ -41,8 +41,8 @@ RSpec.describe User , type: :model do
         @shippingaddress.valid?
         expect(@shippingaddress.errors.full_messages).to include("Phone number is invalid")
       end
-      it " postal_codeがハイフンがない時は購入できない" do
-        @shippingaddress.postal_code = "/\A\d{11}\z/" 
+      it " postal_codeが７桁でハイフンがない時は購入できない" do
+        @shippingaddress.postal_code = "/\A\d{3}[-]\d{4}\z/" 
         @shippingaddress.valid?
         expect(@shippingaddress.errors.full_messages).to include("Postal code is invalid")
       end

@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index,only:[:index]
 
   def index
-
+    @shippingaddress = UserFurima.new
   end
 
   def create

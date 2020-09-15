@@ -8,20 +8,7 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
-  # protect_from_forgery with: :exception
-  # # rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-
-  # def edit
-  # end
-
-  # def update
-  #   if current_user.update(user_params)
-  #     redirect_to root_path
-  #   else
-  #     render :edit
-  #   end
-  # end
-
+  
   private
 
   def configure_permitted_parameters
