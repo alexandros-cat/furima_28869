@@ -1,7 +1,13 @@
 class OrdersController < ApplicationController
- 
+  before_action :authenticate_user!, only: [:index]
   before_action :set_item , only: [:index, :create]
-  
+  before_action :buyer_index, only:[:index]
+  before_action :move_to_index,only:[:index]
+
+  def index
+
+  end
+
   def create
    
     @shippingaddress = UserFurima.new(orders_params) 
@@ -32,7 +38,18 @@ class OrdersController < ApplicationController
     )
   end
 
+  def move_to_index
+   if @item.user_id == current_user.id 
+      redirect_to root_path
+   end 
+  end  
   def set_item                         
     @item = Item.find(params[:item_id])
   end
- end
+
+  def buyer_index
+   if @item.buyer.present?
+   redirect_to root_path
+   end  
+  end
+end

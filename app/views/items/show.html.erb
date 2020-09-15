@@ -9,10 +9,12 @@
     <div class='item-img-content'>
       <%= image_tag  @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outの表示をしましょう。 %>
-      <%# <div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outの表示をしましょう。 %>
+        <div class='sold-out'>
+            <%if @item.buyer != nil %>
+             <span>Sold Out!!</span>
+            <% else %>
+          <%end %> 
+          </div> 
     </div> 
     <div class="item-price-box">
       <span class="item-price">
@@ -33,6 +35,7 @@
     <%# //商品が売れていない場合はこちらを表示しましょう %>
   <% else %>  
     <%= link_to '購入画面に進む', new_user_session_path ,class:"item-red-btn"%>
+        
     <% end %>
     <%# // ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう %>
      
