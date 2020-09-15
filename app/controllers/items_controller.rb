@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    
   end
 
   def new
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
        render 'new'
     end  
   end
-
+   
 
 
   def update
@@ -34,7 +35,7 @@ class ItemsController < ApplicationController
     if @item.destroy
        redirect_to root_path
     else
-       render 'edit'
+       render 'show'
     end
   end  
 

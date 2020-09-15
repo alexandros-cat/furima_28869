@@ -1,26 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
-  before_action :authenticate_user!
-
   before_action :configure_permitted_parameters,
                 if: :devise_controller?
 
   protected
 
-  protect_from_forgery with: :exception
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-
-  def edit
+  def production?
+    Rails.env.production?
   end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
+  
   private
 
   def configure_permitted_parameters
