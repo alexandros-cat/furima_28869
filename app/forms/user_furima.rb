@@ -7,16 +7,16 @@ class UserFurima
               
  
   with_options presence: true do
-   validates :origin_id 
+   validates :origin_id, numericality: { other_than: 1 }
    validates :postal_code
    validates :city 
    validates :address_line
    validates :phone_number
    validates :token
-  end  
+  end   
   validates :postal_code, format:{ with: /\A\d{3}[-]\d{4}\z/ } 
   validates :phone_number, format:{ with: /\A\d{11}\z/} 
-
+            
   def save
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
     Shippingaddress.create(origin_id: origin_id,postal_code:postal_code,
