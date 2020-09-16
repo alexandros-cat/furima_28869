@@ -21,6 +21,7 @@ class Item < ApplicationRecord
     validates :shipping_charge_id
     validates :price
     validates :user_id
+    validates :image
   end
   validates :price, numericality: { greater_than_or_equal_to: 300,
                                     less_than_or_equal_to: 9_999_999 }
