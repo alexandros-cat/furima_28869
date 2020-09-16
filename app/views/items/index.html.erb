@@ -130,7 +130,7 @@
       <li class='list'>
         <%= link_to item_path(item.id),  method: :get do %>
         <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+          <%= image_tag item.image, class: "item-img" if item.image.attached?%>
            
           <%# 商品が売れていればsold outの表示 %>
           <div class='sold-out'>
