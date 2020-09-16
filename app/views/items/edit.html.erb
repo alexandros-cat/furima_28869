@@ -82,7 +82,7 @@ app/assets/stylesheets/items/new.css %>
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
-        </div>
+         </div>
         <%= f.collection_select(:delivery_days_id, DeliveryDays.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>

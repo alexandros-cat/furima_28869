@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   before do
-    @user = FactoryBot.build(:shippingaddress)
+    @user = FactoryBot.build(:user)
   end
 
   describe 'ユーザー新規登録' do
@@ -15,23 +15,20 @@ describe User do
         expect(@user).to be_valid
      end
       it "誕生日が記入されていれば登録できる" do
-        @user.birthday = 2000/01/01
+        @user.birthday = "2000-01-01"
         expect(@user).to be_valid
       end  
-
-      it "苗字・名前(カナも含む)が入力されていれば登録できる"
+      it "苗字・名前が入力されていれば登録できる"do
         @user.family_name = "山本"
         @user.first_name = "太郎"
         expect(@user).to be_valid
       end
-      it "苗字・名前(カナ)が入力されていれば登録できる"   
+      it "苗字・名前(カナ)が入力されていれば登録できる" do  
         @user.family_name_kana = "ヤマモト"
         @user.first_name_kana = "タロウ"
         expect(@user).to be_valid
       end  
-
     end
-
     context '新規登録がうまくいかないとき' do
       it "nicknameが空だと登録できない" do
         @user.nickname = ''
