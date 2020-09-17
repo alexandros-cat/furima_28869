@@ -16,16 +16,17 @@
 - has_many  :buyers
 
 ## itemsテーブル
-| Column        | Type   | Options                      |
-|---------------|--------|------------------------------|
-|   name        |string  |  null: false                 |
-| user_id       |integer | null: false foreign_key: true|
-| price         |integer | null: false                  |
-| category      |integer | null: false                  |
-| condition     |integer | null: false                  |
-| origin        |integer | null: false                  |
-|delivery_days  |integer | null: false                  |
-|shipping_charge|integer | null: false                  |
+| Column           | Type   | Options                      |
+|------------------|--------|------------------------------|
+| name             |string  | null: false                  |
+| item_text        |string  | null: false                  |
+| user_id          |integer | null: false foreign_key: true|
+| price            |integer | null: false                  |
+| category_id      |integer | null: false                  |
+| condition_id     |integer | null: false                  |
+| origin_id        |integer | null: false                  |
+|delivery_days_id  |integer | null: false                  |
+|shipping_charge_id|integer | null: false                  |
 
 
 
@@ -34,8 +35,8 @@
 - has_one :buyer 
 
 ## buyersテーブル
-| Column   | Type   | Options                      |
-|----------|--------|------------------------------|
+| Column   | Type    | Options                      |
+|----------|---------|------------------------------|
 | user_id  | integer | null: false foreign_key: true|
 | item_id  | integer | null: false foreign_key: true|
 
@@ -48,7 +49,7 @@
 | Column        | Type   | Options                      |
 |---------------|--------| -----------------------------|
 | buyer_id      | integer| null: false foreign_key: true|
-| state         | integer| null: false                  |
+| origin_id     | integer| null: false                  |
 | postal_code   | string | null: false                  |
 | city          | string | null: false                  |
 | address_line  | string | null: false                  |
