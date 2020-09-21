@@ -9,7 +9,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
     imageElement.setAttribute('id', "image-element")
     let imageElementNum = document.querySelectorAll('#image-element').length
 
-  // 表示するz画像を生成
+  // 表示する画像を生成
     const blobImage = document.createElement('img');
   blobImage.setAttribute('src', blob);
   blobImage.setAttribute('style', 'height: 100px;')
