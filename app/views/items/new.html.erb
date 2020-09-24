@@ -20,10 +20,10 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :images, name: 'message[images][]',id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]',id:"item-image" %>
          <div id="image-list"></div>
           <% @item.images.each do |image| %>
-          <%= image_tag image, class:'images' %>
+          <%= image_tag images, class:'images' %>
           <% end %>
       </div>
     </div>
