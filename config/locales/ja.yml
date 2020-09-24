@@ -1,8 +1,30 @@
 ja:
- activerecord:
-   attributes:
-     user:
-       nickname: ニックネーム
-     tweet:
-       text: テキスト
-       image: 画像
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        family_name: 苗字
+        first_name:  名前
+        family_name_kana: 苗字(カナ)
+        first_name_kana: 名前(カナ)
+        birthday: 誕生日  
+      item:
+        name: 商品名
+        item_text: 商品説明
+        price: 販売価格
+        category_id: カテゴリ
+        condition_id: 状態
+        origin_id: 都道府県
+        delivery_days_id: 配送日数
+        shipping_charge_id: 配送料の負担
+        images: 画像
+  activemodel:
+    attributes: 
+      user_furima:
+        postal_code: 郵便番号  
+        city: 市町村
+        address_line: 住所
+        address_build: ビルの番号
+        phone_number: 電話番号
+        token: カード番号
+        origin_id: 都道府県
