@@ -21,7 +21,7 @@
 }
 
 .search-form {
-  width: 65vw;
+  width: 100vw;
   height: 5vh;
   display: flex;
   margin-bottom: 5px;
@@ -30,16 +30,15 @@
 .search-form>.input-box {
   width: 100%;
   height: 5vh;
-  padding-left: 10px;
+ 
 }
 
 .search-button {
-  width: 5vh;
+  width: 20vh;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
-  padding: 8px;
-}
+  }
 
 .search-icon {
   width: 100%;
