@@ -14,6 +14,7 @@
 ### Association
 - has_many  :items
 - has_many  :buyers
+- has_many  :comments
 
 ## itemsテーブル
 | Column           | Type   | Options                      |
@@ -33,6 +34,8 @@
 ### Association
 - belongs_to :user
 - has_one :buyer 
+- has_many  :comments
+
 
 ## buyersテーブル
 | Column   | Type    | Options                      |
@@ -58,3 +61,14 @@
 
 ### Association
 - belongs_to :buyer
+
+## commentsテーブル
+| Column        | Type   | Options                      |
+|---------------|--------| -----------------------------|
+| user_id       | integer| null: false foreign_key: true|
+| item_id       | integer| null: false foreign_key: true|
+| text          | string | null: false                  |
+
+### Association
+- belongs_to :user
+- belongs_to :item
