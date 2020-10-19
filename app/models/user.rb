@@ -22,5 +22,6 @@ class User < ApplicationRecord
   end
   has_many :buyers
   has_many :items
-  
+  has_many :comments 
 end
+  

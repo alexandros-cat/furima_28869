@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_many_attached :images
   belongs_to :user
   has_one :buyer
-  
+  has_many :comments
 
   # 空の投稿を保存できないようにする
   with_options presence: true do
@@ -35,7 +35,7 @@ class Item < ApplicationRecord
   validates :delivery_days_id
   validates :shipping_charge_id
   end
-
+  
 end
 
 # エラーハンドリングができていること
