@@ -231,3 +231,9 @@ form input[type="submit"] {
   box-sizing: border-box;
   width: 75vw;
 }
+.images {
+  display: inline-block; /* ここがポイント */
+  height: 300px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
