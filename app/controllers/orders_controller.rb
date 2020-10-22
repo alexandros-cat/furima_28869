@@ -6,10 +6,10 @@ class OrdersController < ApplicationController
 
   def index
     @shippingaddress = UserFurima.new
+    @items = Item.all
   end
-
-  def create
-   
+  
+  def create   
     @shippingaddress = UserFurima.new(orders_params) 
    if @shippingaddress.valid?
       pay_item
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   def orders_params
     params.
     permit(:origin_id,:postal_code, :city, :address_line,:token,:item_id,
-           :address_build,:phone_number)
+           :address_build,:phone_number, images: [])
            .merge(user_id: current_user.id)  
   end
 
